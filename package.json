@@ -1,9 +1,25 @@
 {
-  "name": "yarnlike",
-  "version": "0.0.1",
-  "description": "boilerplate with yarn/npm scripts for front end",
-  "main": "index.js",
-  "repository": "https://github.com/blrzzzt/yarnlike",
-  "author": "blrzzzt <benjaminrabin@gmail.com>",
-  "license": "MIT"
+    "name": "yarnlike",
+    "version": "0.0.1",
+    "description": "boilerplate with yarn/npm scripts for front end",
+    "main": "index.js",
+    "repository": "https://github.com/blrzzzt/yarnlike",
+    "author": "blrzzzt <benjaminrabin@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "binit": "chmod +x ./bin/* && ./bin/config",
+        "scss": "node-sass --output-style compressed -o dist/css src/scss",
+        "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+        "lint": "eslint src/js",
+        "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js",
+        "imagemin": "imagemin src/images dist/images -p",
+        "serve": "browser-sync start --server --files 'dist/css/*, dist/js/*'",
+        "build:css": "yarn run scss && yarn run autoprefixer",
+        "build:js": "yarn run lint && yarn run uglify",
+        "build:images": "yarn run imagemin",
+        "build:all": "yarn run build:css && yarn run build:js && yarn run build:images",
+        "watch:css": "onchange 'src/scss/*' -- yarn run build:css",
+        "watch:js": "onchange 'src/js/*' -- yarn run build:js",
+        "watch:all": "parallelshell 'yarn run serve' 'yarn run watch:css' 'yarn run watch:js'"
+    }
 }

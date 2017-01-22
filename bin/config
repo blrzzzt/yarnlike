@@ -1,0 +1,7 @@
+echo "hello"
+echo "..."
+echo "adding sass"
+
+yarn add -D node-sass postcss-cli autoprefixer eslint uglify-js imagemin-cli browser-sync onchange parallelshell
+
+eslint --init
