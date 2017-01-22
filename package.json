@@ -1,0 +1,9 @@
+{
+  "name": "yarnlike",
+  "version": "0.0.1",
+  "description": "boilerplate with yarn/npm scripts for front end",
+  "main": "index.js",
+  "repository": "https://github.com/blrzzzt/yarnlike",
+  "author": "blrzzzt <benjaminrabin@gmail.com>",
+  "license": "MIT"
+}
